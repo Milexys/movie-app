@@ -17,8 +17,9 @@ const Dashboard = () => {
     setSearch(searchInput.current.value);
   };
 
-  const movies = useFetch(endpoints.movies.getMovies(search ? search : "inception"));
- 
+
+  const movies = useFetch(endpoints.movies.getMovies(search ? search?.trim() : "inception"));
+
   return (
     <>
       <Box sx={{ display: "flex", alignItems: "flex-end", justifyContent: "flex-end", marginBottom: 4  }}>
