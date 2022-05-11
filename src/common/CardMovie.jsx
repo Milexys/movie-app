@@ -18,8 +18,8 @@ const CardMovie = ({ movies }) => {
         <Spinner />
       ) : (
         <Grid container spacing={2}>
-          {movies?.data?.Search?.map((movie) => (
-            <Grid key={movie.imdbID} item xs={12} sm={6} md={4} lg={3}>
+          {movies?.data?.Search?.map((movie, index) => (
+            <Grid key={`${movie?.imdbID}-${index}`} item xs={12} sm={6} md={4} lg={3}>
               <Card sx={{ maxWidth: 345, margin: "auto" }}>
                 <CardActionArea>
                   <CardMedia
@@ -35,7 +35,7 @@ const CardMovie = ({ movies }) => {
                       {movie?.Title}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                      Year: {movie.Year}
+                      Year: {movie?.Year}
                     </Typography>
                   </CardContent>
                 </CardActionArea>
